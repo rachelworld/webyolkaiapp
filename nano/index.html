@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yolk AI - Free Nano Banana AI Video Prompts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 50%, #e8ebff 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #7B42F6 0%, #5A2BC7 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            color: #ffffff;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #7B42F6;
+            font-size: 1.8rem;
+            margin: 30px 0 20px 0;
+            border-bottom: 2px solid #f0f2ff;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.4rem;
+            margin: 25px 0 15px 0;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .example-box {
+            background: #f8f9ff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .example-box h4 {
+            color: #7B42F6;
+            margin-bottom: 10px;
+        }
+
+        .prompt-example {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+
+        .download-section {
+            background: #f8f9ff;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .download-button {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .download-button svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+        }
+
+        .button-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .button-text .small {
+            font-size: 0.7rem;
+            color: #666;
+        }
+
+        .button-text .large {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .trust-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .star {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .table th {
+            background: #f8f9ff;
+            font-weight: 600;
+            color: #7B42F6;
+        }
+
+        .table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .video-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .video-example {
+            background: #f8f9ff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .video-example h4 {
+            color: #7B42F6;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .video-example p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .video-container {
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 12px;
+            }
+            
+            .header, .content, .download-section {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .download-button {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .video-examples {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="app-icon">
+                <img src="../assets/app-icon.png" alt="Yolk AI App Icon">
+            </div>
+            <h1>Free Nano Banana AI Video Prompts</h1>
+            <p class="subtitle">Master the art of creating compelling AI prompts</p>
+        </div>
+
+        <div class="download-section">
+            <h2>Ready to Improve Your AI Prompts?</h2>
+            <p>Download Yolk AI to get the latest AI prompts</p>
+            
+            <div class="download-buttons">
+                <a href="https://apps.apple.com/us/app/yolk-ai-einstein-ai-method/id6736928388" class="download-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <div class="button-text">
+                        <span class="small">Download on the</span>
+                        <span class="large">App Store</span>
+                    </div>
+                </a>
+                
+                <a href="https://play.google.com/store/apps/details?id=app.yolkai" class="download-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                    </svg>
+                    <div class="button-text">
+                        <span class="small">GET IT ON</span>
+                        <span class="large">Google Play</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="trust-indicator">
+                <div class="stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span>Trusted by 100,000+ users worldwide</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Introduction to Video Generation Prompts</h2>
+            <p>Creating effective video generation prompts is an art that combines creativity with technical precision. This guide will help you craft prompts that produce high-quality, engaging videos using AI video generation tools.</p>
+
+            <h2>Basic Prompt Structure</h2>
+            <p>A well-structured video prompt should include:</p>
+            <ul>
+                <li><strong>Subject:</strong> What or who is the main focus of the video</li>
+                <li><strong>Action:</strong> What is happening in the scene</li>
+                <li><strong>Setting:</strong> Where the action takes place</li>
+                <li><strong>Style:</strong> Visual style and mood</li>
+                <li><strong>Camera work:</strong> Shot type and movement</li>
+            </ul>
+
+            <div class="example-box">
+                <h4>Example Basic Prompt:</h4>
+                <div class="prompt-example">
+                    "A golden retriever running through a sunlit meadow, with wildflowers swaying in the breeze, shot with a smooth tracking camera movement, warm and cheerful atmosphere"
+                </div>
+            </div>
+
+            <h2>Advanced Prompting Techniques</h2>
+            
+            <h3>1. Detailed Scene Description</h3>
+            <p>Include specific details about lighting, weather, time of day, and environmental elements to create more realistic and engaging videos.</p>
+
+            <div class="example-box">
+                <h4>Detailed Scene Example:</h4>
+                <div class="prompt-example">
+                    "Create a cinematic video of a vintage red convertible driving down a winding mountain road at sunset. The car should be moving smoothly with the golden hour light casting long shadows. Include details like dust particles in the air, the sound of the engine, and panoramic mountain views in the background. Use a combination of tracking shots and aerial drone footage."
+                </div>
+            </div>
+
+            <h3>2. Character and Object Specifications</h3>
+            <p>When including people or objects, be specific about their appearance, clothing, and behavior.</p>
+
+            <div class="example-box">
+                <h4>Character Description Example:</h4>
+                <div class="prompt-example">
+                    "A young woman in a flowing white dress walking barefoot on a beach at sunrise. She has long brown hair blowing in the wind, and she's looking out at the ocean with a peaceful expression. The waves are gentle, and seagulls are flying overhead."
+                </div>
+            </div>
+
+            <h3>3. Camera Movement and Cinematography</h3>
+            <p>Specify camera movements to create dynamic and professional-looking videos.</p>
+
+            <table class="table">
+                <tr>
+                    <th>Camera Movement</th>
+                    <th>Description</th>
+                    <th>Use Case</th>
+                </tr>
+                <tr>
+                    <td>Tracking shot</td>
+                    <td>Camera follows the subject</td>
+                    <td>Action sequences, following characters</td>
+                </tr>
+                <tr>
+                    <td>Pan</td>
+                    <td>Horizontal camera movement</td>
+                    <td>Landscape reveals, establishing shots</td>
+                </tr>
+                <tr>
+                    <td>Tilt</td>
+                    <td>Vertical camera movement</td>
+                    <td>Revealing tall objects, dramatic reveals</td>
+                </tr>
+                <tr>
+                    <td>Zoom</td>
+                    <td>Camera lens adjustment</td>
+                    <td>Focus on details, emotional moments</td>
+                </tr>
+            </table>
+
+            <h2>Negative Prompts</h2>
+            <p>Negative prompts help specify what elements to avoid in your video generation. Instead of using instructive language, describe what you don't want to see.</p>
+
+            <div class="example-box">
+                <h4>Negative Prompt Example:</h4>
+                <div class="prompt-example">
+                    <strong>Good:</strong> "urban background, man-made structures, dark atmosphere"<br>
+                    <strong>Avoid:</strong> "no walls" or "don't show buildings"
+                </div>
+            </div>
+
+            <h2>Aspect Ratios</h2>
+            <p>Choose the appropriate aspect ratio for your video based on its intended use:</p>
+
+            <table class="table">
+                <tr>
+                    <th>Aspect Ratio</th>
+                    <th>Description</th>
+                    <th>Best For</th>
+                </tr>
+                <tr>
+                    <td>16:9 (Widescreen)</td>
+                    <td>Standard landscape format</td>
+                    <td>YouTube, TV, desktop viewing</td>
+                </tr>
+                <tr>
+                    <td>9:16 (Portrait)</td>
+                    <td>Vertical format</td>
+                    <td>TikTok, Instagram Stories, mobile</td>
+                </tr>
+            </table>
+
+            <h2>Image-to-Video Generation</h2>
+            <p>You can bring static images to life by using image-to-video capabilities. When using reference images:</p>
+            <ul>
+                <li>Ensure actions align with subjects in the image</li>
+                <li>Specify which character performs actions when multiple subjects are present</li>
+                <li>Use distinguishing details to differentiate between characters</li>
+            </ul>
+
+            <div class="example-box">
+                <h4>Image-to-Video Example:</h4>
+                <div class="prompt-example">
+                    "The man in the red hat says, 'Where is the rabbit?' Then the woman in the green dress next to him replies, 'There, in the woods.'"
+                </div>
+            </div>
+
+            <h2>Best Practices</h2>
+            <ol>
+                <li><strong>Be Specific:</strong> Include detailed descriptions of visual elements</li>
+                <li><strong>Use Action Words:</strong> Describe movement and behavior clearly</li>
+                <li><strong>Set the Mood:</strong> Specify lighting, atmosphere, and emotional tone</li>
+                <li><strong>Consider Duration:</strong> Think about the pacing and length of your video</li>
+                <li><strong>Test and Iterate:</strong> Refine your prompts based on results</li>
+            </ol>
+
+            <h2>Common Mistakes to Avoid</h2>
+            <ul>
+                <li>Being too vague or generic in descriptions</li>
+                <li>Including conflicting instructions</li>
+                <li>Overcomplicating the prompt with too many elements</li>
+                <li>Not specifying camera work or movement</li>
+                <li>Ignoring lighting and atmospheric details</li>
+            </ul>
+
+            <h2>Sample Videos</h2>
+            <p>Here are examples of videos generated using the techniques described above. Each example shows the prompt and corresponding generated output:</p>
+            
+            <h3>Icicles</h3>
+            <p>This video demonstrates how you can use each of the elements in your prompt.</p>
+            <table class="table">
+                <tr>
+                    <th>Prompt</th>
+                    <th>Generated output</th>
+                </tr>
+                <tr>
+                    <td>Close up shot (composition) of melting icicles (subject) on a frozen rock wall (context) with cool blue tones (ambiance), zoomed in (camera motion) maintaining close-up detail of water drips (action).</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/icicles2.gif" alt="Dripping icicles with a blue background" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+            </table>
+
+            <h3>Man on the phone</h3>
+            <p>These videos demonstrate how you can revise your prompt with more specific details about the video that you want Veo to generate.</p>
+            <table class="table">
+                <tr>
+                    <th>Prompt</th>
+                    <th>Generated output</th>
+                    <th>Analysis</th>
+                </tr>
+                <tr>
+                    <td>The camera dollies to show a close up of a desperate man in a green trench coat that's making a call on a rotary-style wall phone with a green neon light and a movie scene.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/phonebooth.gif" alt="Man talking on the phone" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                    <td>This is the first generated video based on the prompt.</td>
+                </tr>
+                <tr>
+                    <td>A close-up cinematic shot follows a desperate man in a weathered green trench coat as he dials a rotary phone mounted on a gritty brick wall, bathed in the eerie glow of a green neon sign. The camera dollies in, revealing the tension in his jaw and the desperation etched on his face as he struggles to make the call. The shallow depth of field focuses on his furrowed brow and the black rotary phone, blurring the background into a sea of neon colors and indistinct shadows, creating a sense of urgency and isolation.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/phonebooth2.gif" alt="Man talking on the phone" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                    <td>A more detailed prompt results in a video that is more focused with a richer environment.</td>
+                </tr>
+                <tr>
+                    <td>A video with smooth motion that dollies in on a desperate man in a green trench coat, using a vintage rotary phone against a wall bathed in an eerie green neon glow. The camera starts from a medium distance, slowly moving closer to the man's face, revealing his frantic expression and the sweat on his brow as he urgently dials the phone. The focus is on the man's hands, his fingers fumbling with the dial as he desperately tries to connect. The green neon light casts long shadows on the wall, adding to the tense atmosphere. The scene is framed to emphasize the isolation and desperation of the man, highlighting the stark contrast between the vibrant glow of the neon and the man's grim determination.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/phonebooth3.gif" alt="Man talking on the phone" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                    <td>Adding more detail gave the subject a realistic expression and created an intense and vibrant scene.</td>
+                </tr>
+            </table>
+
+            <h3>Snow leopard</h3>
+            <p>This prompt demonstrates the output that Veo might generate.</p>
+            <table class="table">
+                <tr>
+                    <th>Prompt</th>
+                    <th>Generated output</th>
+                </tr>
+                <tr>
+                    <td>A cute creature with snow leopard-like fur is walking in winter forest, 3D cartoon style render.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/snow_leopard_short.gif" alt="Snow leopard is lethargic" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+            </table>
+
+            <h3>Running snow leopard</h3>
+            <p>This prompt has more detail and demonstrates generated output that might be closer to what you want in your video.</p>
+            <table class="table">
+                <tr>
+                    <th>Prompt</th>
+                    <th>Generated output</th>
+                </tr>
+                <tr>
+                    <td>Create a short 3D animated scene in a joyful cartoon style. A cute creature with snow leopard-like fur, large expressive eyes, and a friendly, rounded form happily prances through a whimsical winter forest. The scene should feature rounded, snow-covered trees, gentle falling snowflakes, and warm sunlight filtering through the branches. The creature's bouncy movements and wide smile should convey pure delight. Aim for an upbeat, heartwarming tone with bright, cheerful colors and playful animation. Consider adding subtle, whimsical sound effects to enhance the joyful winter atmosphere.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/running_snow_leopard.gif" alt="Snow leopard is running faster" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+            </table>
+
+            <h2>More tips for writing prompts</h2>
+            <p>The following tips help you write prompts that generate your videos:</p>
+            <ul>
+                <li><strong>Use descriptive language:</strong> Use adjectives and adverbs to paint a clear picture for Veo.</li>
+                <li><strong>Provide context:</strong> If necessary, include background information to help your model understand what you want.</li>
+                <li><strong>Reference specific artistic styles:</strong> If you have a particular aesthetic in mind, reference specific artistic styles or art movements.</li>
+                <li><strong>Utilize prompt engineering tools:</strong> Consider exploring prompt engineering tools or resources to help you refine your prompts and achieve optimal results.</li>
+                <li><strong>Enhance the facial details in your personal and group images:</strong> Specify facial details as a focus of the photo like using the word portrait in the prompt.</li>
+            </ul>
+
+            <h2>Add more details to prompts</h2>
+            <p>These examples show you how to refine your prompts to generate your videos.</p>
+
+            <h3>Subject description</h3>
+            <p>This example shows you how to specify a subject description.</p>
+            <table class="table">
+                <tr>
+                    <th>Subject description</th>
+                    <th>Prompt</th>
+                    <th>Generated output</th>
+                </tr>
+                <tr>
+                    <td>This description can include a subject, multiple subjects and actions, such as "white concrete apartment building."</td>
+                    <td>An architectural rendering of a white concrete apartment building with flowing organic shapes, seamlessly blending with lush greenery and futuristic elements</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/white_building.gif" alt="Placeholder" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+            </table>
+
+            <h3>Context</h3>
+            <p>This example shows you how to specify context.</p>
+            <table class="table">
+                <tr>
+                    <th>Context</th>
+                    <th>Prompt</th>
+                    <th>Generated output</th>
+                </tr>
+                <tr>
+                    <td>The background or context in which the subject will be placed is very important. Try placing your subject in a variety of backgrounds like on a busy street, in outer space</td>
+                    <td>A satellite floating through outer space with the moon and some stars in the background.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/satellite2.gif" alt="Satellite floating in the atmosphere" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+            </table>
+
+            <h3>Action</h3>
+            <p>This example shows you how to specify action.</p>
+            <table class="table">
+                <tr>
+                    <th>Action</th>
+                    <th>Prompt</th>
+                    <th>Generated output</th>
+                </tr>
+                <tr>
+                    <td>What is the subject doing like walking, running, or turning their head.</td>
+                    <td>A wide shot of a woman walking along the beach, looking content and relaxed and looking towards the horizon at sunset.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/sunset.gif" alt="Sunset is absolutely beautiful" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+            </table>
+
+            <h3>Style</h3>
+            <p>This example shows you how to specify style.</p>
+            <table class="table">
+                <tr>
+                    <th>Style</th>
+                    <th>Prompt</th>
+                    <th>Generated output</th>
+                </tr>
+                <tr>
+                    <td>You can add keywords to improve generation quality and steer it to closer to intended style, such as shallow depth of field, movie still, minimalistic, surreal, vintage, futuristic, double-exposure.</td>
+                    <td>Film noir style, man and woman walk on the street, mystery, cinematic, black and white.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/film_noir.gif" alt="Film noir style is absolutely beautiful" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+            </table>
+
+            <h3>Camera motion</h3>
+            <p>This example shows you how to specify camera motion.</p>
+            <table class="table">
+                <tr>
+                    <th>Camera motion</th>
+                    <th>Prompt</th>
+                    <th>Generated output</th>
+                </tr>
+                <tr>
+                    <td>POV shot, aerial view, tracking drone view, tracking shot</td>
+                    <td>A POV shot from a vintage car driving in the rain, Canada at night, cinematic.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/pov_shot.gif" alt="Sunset is absolutely beautiful" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+            </table>
+
+            <h3>Composition</h3>
+            <p>This example shows you how to specify composition.</p>
+            <table class="table">
+                <tr>
+                    <th>Composition</th>
+                    <th>Prompt</th>
+                    <th>Generated output</th>
+                </tr>
+                <tr>
+                    <td>How the shot is framed (wide shot, close-up, low angle)</td>
+                    <td>Extreme close-up of a an eye with city reflected in it.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/composition_eye_close_up.gif" alt="Sunset is absolutely beautiful" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+                <tr>
+                    <td>How the shot is framed (wide shot, close-up, low angle)</td>
+                    <td>Create a video of a wide shot of surfer walking on a beach with a surfboard, beautiful sunset, cinematic.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/composition_surfer.gif" alt="Sunset is absolutely beautiful" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+            </table>
+
+            <h3>Ambiance</h3>
+            <p>This example shows you how to specify ambiance.</p>
+            <table class="table">
+                <tr>
+                    <th>Ambiance</th>
+                    <th>Prompt</th>
+                    <th>Generated output</th>
+                </tr>
+                <tr>
+                    <td>Adding colors helped make the image look unique and convey intended emotions "muted orange warm tones," "natural light," "sunrise / sunset". Color palettes play a vital role in photography, influencing the mood and emotional impact of an image, and making the image style consistent. For example, a warm, golden palette can infuse a romantic and atmospheric feel into a photograph. Example of color palettes: "pastel blue and pink tones," "dim ambient lighting," "cold muted tones"</td>
+                    <td>A close-up of a girl holding adorable golden retriever puppy in the park, sunlight.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/ambiance_puppy.gif" alt="A puppy in a young girl's arms" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+                <tr>
+                    <td>Adding colors helped make the image look unique and convey intended emotions "muted orange warm tones," "natural light," "sunrise / sunset". Color palettes play a vital role in photography, influencing the mood and emotional impact of an image, and making the image style consistent. For example, a warm, golden palette can infuse a romantic and atmospheric feel into a photograph. Example of color palettes: "pastel blue and pink tones," "dim ambient lighting," "cold muted tones"</td>
+                    <td>Cinematic close-up shot of a sad woman riding a bus in the rain, cool blue tones, sad mood.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/ambiance_sad.gif" alt="A woman riding on a bus that feels sad" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+            </table>
+
+            <h3>Audio</h3>
+            <p>Audio is supported by veo-3.0-generate-001 in Preview.</p>
+            <p>Clearly specify if you want audio. We recommend that you use separate sentences in your prompt to describe the audio. The following are examples of audio described as part of a prompt:</p>
+            
+            <h4>Sound effects:</h4>
+            <ul>
+                <li>The audio features water splashing in the background.</li>
+                <li>Add soft music in the background.</li>
+            </ul>
+
+            <h4>Speech:</h4>
+            <ul>
+                <li>The man in the red hat says, "Where is the rabbit?" Then the woman in the green dress next to him replies, "There, in the woods."</li>
+            </ul>
+
+            <h3>Use reference images to generate videos</h3>
+            <p>You can bring images to life by using the image-to-video capability that Veo has and use your existing assets or Imagen to generate something new.</p>
+            <table class="table">
+                <tr>
+                    <th>Prompt</th>
+                    <th>Generated output</th>
+                </tr>
+                <tr>
+                    <td>Bunny with a chocolate candy bar.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/static_bunny.png" alt="Bunny is running away" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+                <tr>
+                    <td>Bunny runs away.</td>
+                    <td><img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/video/images/bunny_runs_away.gif" alt="Bunny is running away" style="max-width: 200px; height: auto; border-radius: 4px;"></td>
+                </tr>
+            </table>
+
+            <p>When using image-to-video, we recommend the following:</p>
+            <ul>
+                <li>Ensure that actions and speech descriptions align with each subject present in the input image.</li>
+                <li>When multiple subjects are present in the input image, clearly specify which character is performing an action or speaking. To differentiate between multiple characters in an input image, use the most distinguishing descriptive details available. For example:
+                    <ul>
+                        <li>The man in the red hat.</li>
+                        <li>The woman in the blue dress.</li>
+                    </ul>
+                </li>
+            </ul>
+
+           
+        </div>
+
+        <div class="download-section">
+            <h2>Ready to Improve Your AI Prompts?</h2>
+            <p>Download Yolk AI to get the latest AI prompts</p>
+            
+            <div class="download-buttons">
+                <a href="https://apps.apple.com/us/app/yolk-ai-einstein-ai-method/id6736928388" class="download-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <div class="button-text">
+                        <span class="small">Download on the</span>
+                        <span class="large">App Store</span>
+                    </div>
+                </a>
+                
+                <a href="https://play.google.com/store/apps/details?id=app.yolkai" class="download-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                    </svg>
+                    <div class="button-text">
+                        <span class="small">GET IT ON</span>
+                        <span class="large">Google Play</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="trust-indicator">
+                <div class="stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span>Trusted by 100,000+ users worldwide</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

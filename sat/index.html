@@ -130,6 +130,7 @@
             gap: 8px;
             color: #555555;
             font-size: 1rem;
+            margin-bottom: 50px;
         }
 
         .stars {
@@ -140,6 +141,87 @@
         .star {
             color: #FFD700;
             font-size: 1.2rem;
+        }
+
+        .tiktok-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            width: 100%;
+            padding: 20px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 50%, #e8ebff 100%) !important;
+            position: relative;
+            border-radius: 0;
+        }
+        
+        /* Constrain TikTok embed to its natural width to minimize white space */
+        .tiktok-embed {
+            max-width: 325px;
+            width: 100%;
+            background: transparent !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+            display: block !important;
+        }
+        
+        /* Force ALL elements inside TikTok container to use page gradient background */
+        .tiktok-container > div,
+        .tiktok-container div,
+        .tiktok-container > * {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 50%, #e8ebff 100%) !important;
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        
+        /* Target all potential TikTok wrapper elements */
+        .tiktok-container blockquote,
+        .tiktok-container section,
+        .tiktok-container article,
+        .tiktok-container span,
+        .tiktok-container a {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 50%, #e8ebff 100%) !important;
+            background-color: transparent !important;
+            border: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        /* Make iframe transparent but ensure parent has gradient */
+        .tiktok-container iframe {
+            background: transparent !important;
+            border: none !important;
+        }
+        
+        /* Force gradient on all child elements except iframe */
+        .tiktok-container *:not(iframe):not(iframe *) {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 50%, #e8ebff 100%) !important;
+            background-color: transparent !important;
+        }
+        
+        /* Hide any borders or outlines */
+        .tiktok-container * {
+            border: none !important;
+            outline: none !important;
+        }
+
+        .tiktok-embed iframe {
+            background: transparent !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .tiktok-embed blockquote {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            max-width: 605px !important;
         }
 
         @media (max-width: 768px) {
@@ -201,6 +283,15 @@
             .trust-indicator {
                 flex-direction: column;
                 gap: 8px;
+            }
+            
+            .tiktok-container {
+                margin-top: 30px;
+            }
+            
+            .tiktok-embed {
+                max-width: 100%;
+                min-width: 280px;
             }
         }
     </style>
@@ -273,14 +364,49 @@
         
         <div class="trust-indicator">
             <div class="stars">
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
+                <span class="star">⭐️</span>
+                <span class="star">⭐️</span>
+                <span class="star">⭐️</span>
+                <span class="star">⭐️</span>
+                <span class="star">⭐️</span>
             </div>
             <span>Trusted by 100,000+ users worldwide</span>
         </div>
+        
+        <div class="tiktok-container">
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@studyv.tok/video/7466063517137865989" data-video-id="7466063517137865989">
+                <section>
+                    <a target="_blank" title="@studyv.tok" href="https://www.tiktok.com/@studyv.tok">@studyv.tok</a>
+                </section>
+            </blockquote>
+            <script async src="https://www.tiktok.com/embed.js"></script>
+        </div>
     </div>
+    <script>
+        // Remove white backgrounds from TikTok embed after it loads
+        function removeTikTokWhitespace() {
+            const container = document.querySelector('.tiktok-container');
+            if (container) {
+                // Remove white backgrounds from all divs inside the container
+                const allDivs = container.querySelectorAll('div');
+                allDivs.forEach(div => {
+                    div.style.backgroundColor = 'transparent';
+                    div.style.background = 'transparent';
+                });
+                
+                // Remove white backgrounds from iframes
+                const iframes = container.querySelectorAll('iframe');
+                iframes.forEach(iframe => {
+                    iframe.style.backgroundColor = 'transparent';
+                    iframe.style.background = 'transparent';
+                });
+            }
+        }
+        
+        // Run after page loads
+        window.addEventListener('load', function() {
+            setTimeout(removeTikTokWhitespace, 2000);
+        });
+    </script>
 </body>
 </html>
